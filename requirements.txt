@@ -1,0 +1,4 @@
+google-generativeai
+typing-extensions
+python-dotenv
+streamlit
