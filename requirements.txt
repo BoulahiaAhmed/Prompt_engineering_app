@@ -1,4 +1,4 @@
 google-generativeai
 typing-extensions
 python-dotenv
-os
+streamlit
