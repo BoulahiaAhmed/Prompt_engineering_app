@@ -19,7 +19,8 @@ logger = logging.getLogger(__name__)
 
 # Load environment variables from a .env file
 load_dotenv()
-GOOGLE_API_KEY = os.getenv('API_KEY')
+os.environ["API_KEY"] = st.secrets["API_KEY"]
+GOOGLE_API_KEY=os.environ["API_KEY"]
 
 # Configure Google Generative AI with API Key
 genai.configure(api_key=GOOGLE_API_KEY)
