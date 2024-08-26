@@ -44,7 +44,7 @@ def main():
     st.subheader('Model Selection')
     # Dropdown to select the model
     #model_name = st.selectbox("Select Model", ['gemini-1.5-flash', 'gemini-1.5-pro-latest', 'gemini-1.5-pro', 'test])
-    model_name = st.radio("Select Model", ['gemini-1.5-flash', 'gemini-1.5-pro-latest', 'gemini-1.5-pro', 'test], horizontal=True)
+    model_name = st.radio("Select Model", ['gemini-1.5-flash', 'gemini-1.5-pro-latest', 'gemini-1.5-pro', 'test'], horizontal=True)
     if model_name == 'gemini-1.5-flash':
         st.info("Rate limit: 15 Request Per Minute")
     if model_name == 'gemini-1.5-pro-latest':
