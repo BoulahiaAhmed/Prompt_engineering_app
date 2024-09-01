@@ -47,14 +47,14 @@ def main():
     model_name = st.radio("Select Model", ['gemini-1.5-flash', 'gemini-1.5-pro-latest', 'gemini-1.5-pro', 'gemini-1.5-flash-exp_0827', 'gemini-1.5-pro-exp_0827'], horizontal=True)
     if model_name == 'gemini-1.5-flash':
         st.info("Rate limit: 15 Request Per Minute")
-    if model_name == 'gemini-1.5-flash-exp_0827':
-        st.info("Rate limit: 15 Request Per Minute")
-    if model_name == 'gemini-1.5-pro-exp_0827':
-        st.info("Rate limit: 15 Request Per Minute")
     if model_name == 'gemini-1.5-pro-latest':
         st.info("Rate limit: 2 Request Per Minute")
     if model_name == 'gemini-1.5-pro':
         st.info("Rate limit: 2 Request Per Minute")
+    if model_name == 'gemini-1.5-flash-exp_0827':
+        st.info("Rate limit: 15 Request Per Minute")
+    if model_name == 'gemini-1.5-pro-exp_0827':
+        st.info("Rate limit: 15 Request Per Minute")
     st.divider()
     st.subheader('Enter Sles Deck to evaluate here: ')
     sales_deck = st.text_area("Sales Deck:", value=default_sales_deck, height=250)
