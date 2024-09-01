@@ -33,6 +33,12 @@ default_system_message="""You are a compliance officer.
     "suggestion": ["Recommended briefly some changes or improvements to ensure compliance with the rule, including relevant details"]
     }
     """
+default_rules ="""Fairness Rule: The sales pitch must present information in a balanced manner, ensuring that both the benefits and risks of the financial product are clearly stated.
+##
+Risk Disclosure Rule: All potential risks associated with the financial product must be disclosed prominently, using straightforward language that can be easily understood by the target audience.
+##
+Non-Misleading Rule: The sales deck must not contain any statements or claims that could be considered misleading or deceptive, including the omission of key information.
+"""
 
 # Define the main function
 def main():
@@ -63,7 +69,7 @@ def main():
     st.divider()
     st.subheader('Enter rules here')
     st.write("\nIf you want to enter more than 1 rule use ## as a separator, \nexample:\n\n Fair, Clear, and Not Misleading ## Inclusion of Risk Warnings ")
-    rules_string = st.text_area("Rules:", height=200)
+    rules_string = st.text_area("Rules:",value=default_rules, height=200)
     rules_list = create_rules_list(rules_string)
 
     st.divider()
