@@ -36,8 +36,6 @@ default_system_message="""You are a compliance officer.
 default_rules ="""Fairness Rule: The sales pitch must present information in a balanced manner, ensuring that both the benefits and risks of the financial product are clearly stated.
 ##
 Risk Disclosure Rule: All potential risks associated with the financial product must be disclosed prominently, using straightforward language that can be easily understood by the target audience.
-##
-Non-Misleading Rule: The sales deck must not contain any statements or claims that could be considered misleading or deceptive, including the omission of key information.
 """
 
 # Define the main function
