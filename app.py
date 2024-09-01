@@ -16,14 +16,10 @@ default_system_message="""You are a compliance officer.
 
     The steps are as follows:
     Understand the given rule.
-    Augment the rule with additional vocabulary related to financial products.
     Evaluate the following sales deck: to determine if it respects the rule.
 
-    Provide the output in JSON format with the following fields:
-    rule_name (str): The name of the rule being applied.
-    label (bool): The result of evaluating adherence to the rule.
-    part (list[str]): Specific sections or aspects of the sales deck evaluated, including relevant details.
-    suggestion (list[str]): Recommended changes or improvements to ensure compliance with the rule.
+    The output MUST be a JSON format with the following fields:
+    rule_name, label, parts, suggestions
 
     Example JSON output structure:
     {
@@ -32,11 +28,9 @@ default_system_message="""You are a compliance officer.
     "part": ["Specific section or aspect of the sales pitch evaluated, including relevant details"],
     "suggestion": ["Recommended briefly some changes or improvements to ensure compliance with the rule, including relevant details"]
     }
+    
     """
-default_rules ="""Fairness Rule: The sales pitch must present information in a balanced manner, ensuring that both the benefits and risks of the financial product are clearly stated.
-##
-Risk Disclosure Rule: All potential risks associated with the financial product must be disclosed prominently, using straightforward language that can be easily understood by the target audience.
-"""
+default_rules ="""Fairness Rule ## Risk Disclosure Rule """
 
 # Define the main function
 def main():
@@ -47,18 +41,14 @@ def main():
 
     st.subheader('Model Selection')
     # Dropdown to select the model
-    #model_name = st.selectbox("Select Model", ['gemini-1.5-flash', 'gemini-1.5-pro-latest', 'gemini-1.5-pro', 'gemini-1.5-flash-exp_0827', 'gemini-1.5-pro-exp_0827'])
-    model_name = st.radio("Select Model", ['gemini-1.5-flash', 'gemini-1.5-pro-latest', 'gemini-1.5-pro', 'gemini-1.5-flash-exp_0827', 'gemini-1.5-pro-exp_0827'], horizontal=True)
+    #model_name = st.selectbox("Select Model", ['gemini-1.5-flash', 'gemini-1.5-pro-latest', 'gemini-1.5-pro'])
+    model_name = st.radio("Select Model", ['gemini-1.5-flash', 'gemini-1.5-pro-latest', 'gemini-1.5-pro'], horizontal=True)
     if model_name == 'gemini-1.5-flash':
         st.info("Rate limit: 15 Request Per Minute")
     if model_name == 'gemini-1.5-pro-latest':
         st.info("Rate limit: 2 Request Per Minute")
     if model_name == 'gemini-1.5-pro':
         st.info("Rate limit: 2 Request Per Minute")
-    if model_name == 'gemini-1.5-flash-exp_0827':
-        st.info("Rate limit: 15 Request Per Minute")
-    if model_name == 'gemini-1.5-pro-exp_0827':
-        st.info("Rate limit: 15 Request Per Minute")
     st.divider()
     st.subheader('Enter Sles Deck to evaluate here: ')
     sales_deck = st.text_area("Sales Deck:", value=default_sales_deck, height=250)
