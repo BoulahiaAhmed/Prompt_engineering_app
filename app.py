@@ -18,8 +18,11 @@ default_system_message="""You are a compliance officer.
     Understand the given rule.
     Evaluate the following sales deck: to determine if it respects the rule.
 
-    The output MUST be a JSON format with the following fields:
-    rule_name, label, parts, suggestions
+    The output MUST be a JSON format with the following fields in order:
+    rule_name: str, containing the rule name.
+    label: boolean, True if the sales deck respecting the rule, else False.
+    parts: list[str], list of string containing the parts from the sales deck that are responsible for breaking the rule, if the rule is respected this list must be empty.
+    suggestions: list[str], list of string with suggestions to correct the parts that broke the rule in the sales deck.
 
     Example JSON output structure:
     {
@@ -30,7 +33,7 @@ default_system_message="""You are a compliance officer.
     }
     
     """
-default_rules ="""Fairness Rule ## Risk Disclosure Rule """
+default_rules ="""Fairness ## Risk Disclosure"""
 
 # Define the main function
 def main():
